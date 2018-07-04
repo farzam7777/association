@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Hms</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<ul>
+  <li><a href="<%= root_path %>"> Home </a></li>
+  <li><a href="<%= new_doctor_path %>">Add Doctor</a></li>
+  <li><a href="#">Add Patient</a></li>
+  <li><a href="<%= new_appointment_path %>">Add Appointment</a></li>
+  <li><a href="<%= appointments_path %>">All Appointments</a></li>
+</ul>
+
+<br>
+<div id="flash_messages">
+  <% flash.each do |key, value| %>
+    <strong> <%= content_tag(:div, value, :class => "flash #{key}") %> </strong>
+  <% end %>
+</div>
+
+<%= yield %>
+
+</body>
+</html>
